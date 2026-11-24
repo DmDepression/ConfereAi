@@ -12,3 +12,5 @@
 3. Framework preset: *None*; Build command: vazio; Output directory: `/`.
 
 Arquivos: `index.html`, `style.css`, `app.js`, `logo.svg`/`logo.png`, `_headers` (cabeçalhos de segurança).
+
+Projeto Integrador — Senac EAD.

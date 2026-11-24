@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ConfereAí — Antes de compartilhar, confere!</title>
+<meta name="description" content="ConfereAí: guia gratuito para identificar notícias falsas, links maliciosos e conteúdo gerado por IA.">
+<link rel="icon" href="logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="#inicio"><img src="logo.svg" alt="" width="36" height="36"><span>Confere<b>Aí</b></span></a>
+  <nav>
+    <a href="#verificar">Verificar</a>
+    <a href="#ferramentas">Ferramentas</a>
+    <a href="#dicas">Dicas</a>
+    <a href="#ia">IA</a>
+    <a href="#quiz">Quiz</a>
+    <a href="#sobre">Sobre</a>
+  </nav>
+</header>
+
+<main>
+<section id="inicio" class="hero">
+  <div class="wrap">
+    <p class="tag">Segurança Digital para todos</p>
+    <h1>Antes de compartilhar,<br><span>verifique.</span></h1>
+    <p class="lead">Notícias correm o mundo em segundos — e nem todas querem informar. O ConfereAí ensina, de graça, a identificar notícias falsas, links perigosos e imagens criadas por IA.</p>
+    <div class="cta"><a class="btn" href="#verificar">Checar uma notícia</a><a class="btn ghost" href="#ferramentas">Usar as ferramentas</a></div>
+  </div>
+</section>
+
+<section id="verificar" class="wrap">
+  <h2>Checklist de verificação</h2>
+  <p class="sub">Marque o que você conseguiu confirmar sobre o conteúdo que recebeu.</p>
+  <div class="checker">
+    <form id="checklist">
+      <label><input type="checkbox"> A fonte é um veículo ou órgão conhecido e identificável</label>
+      <label><input type="checkbox"> A notícia tem autor, data e está atualizada</label>
+      <label><input type="checkbox"> Outros veículos confiáveis publicaram a mesma informação</label>
+      <label><input type="checkbox"> O título não é sensacionalista nem pede “compartilhe urgente!”</label>
+      <label><input type="checkbox"> O link leva ao endereço oficial (sem letras trocadas no domínio)</label>
+      <label><input type="checkbox"> Agências de checagem não classificaram o conteúdo como falso</label>
+      <label><input type="checkbox"> Imagens e vídeos não mostram sinais de edição ou de IA</label>
+    </form>
+    <div class="meter" aria-live="polite">
+      <div class="bar"><i id="bar"></i></div>
+      <strong id="verdict">Marque os itens ao lado</strong>
+      <p id="advice">Quanto mais itens confirmados, maior a confiança no conteúdo.</p>
+    </div>
+  </div>
+
+  <h3>Verifique um link suspeito</h3>
+  <form id="linkform" class="linkform">
+    <input id="url" type="url" placeholder="Cole aqui o link (https://...)" required>
+    <button class="btn">Analisar</button>
+  </form>
+  <p id="linkres" class="small"></p>
+</section>
+
+<section id="ferramentas" class="band">
+  <div class="wrap">
+    <h2>Ferramentas de verificação</h2>
+    <p class="sub">Use daqui mesmo os serviços gratuitos de checadores e de segurança. O ConfereAí não guarda o que você digita.</p>
+    <div class="tools">
+      <div class="tool">
+        <h4>🔎 Buscar em agências de checagem</h4>
+        <p>Digite o assunto ou a frase da notícia e pesquise nos checadores.</p>
+        <input id="fq" placeholder="ex.: vacina causa..." autocomplete="off">
+        <div class="chips" id="fqbtns"></div>
+      </div>
+      <div class="tool">
+        <h4>🌐 Idade e histórico do site</h4>
+        <p>Sites criados há poucos dias são comuns em golpes. Consultamos o registro público do domínio (RDAP) e o Internet Archive.</p>
+        <input id="dom" placeholder="ex.: exemplo.com.br" autocomplete="off">
+        <div class="chips"><button class="chip" id="domgo">Consultar</button></div>
+        <div class="res" id="domres"></div>
+      </div>
+      <div class="tool">
+        <h4>🖼️ Busca reversa de imagem</h4>
+        <p>Cole o endereço de uma imagem para descobrir onde ela apareceu antes (e se está fora de contexto).</p>
+        <input id="img" placeholder="https://.../foto.jpg" autocomplete="off">
+        <div class="chips" id="imgbtns"></div>
+      </div>
+      <div class="tool">
+        <h4>🏛️ O que o político fez?</h4>
+        <p>Viu uma notícia sobre um político ou uma lei? Confira os dados oficiais (votos, faltas, gastos e processos) no <b>Fato Carimbado</b>.</p>
+        <input id="pol" placeholder="ex.: nome do político, partido ou lei" autocomplete="off">
+        <div class="chips" id="polbtns"></div>
+        <div class="chips res">
+          <a class="chip" target="_blank" rel="noopener" href="https://fatocarimbado.com.br/mandato/#/representa">Sua região</a>
+          <a class="chip" target="_blank" rel="noopener" href="https://fatocarimbado.com.br/mandato/#/rankings">Ranking de faltas e gastos</a>
+          <a class="chip" target="_blank" rel="noopener" href="https://fatocarimbado.com.br/mandato/#/comparar">Como votaram</a>
+          <a class="chip" target="_blank" rel="noopener" href="https://fatocarimbado.com.br/mandato/#/justica">Na Justiça</a>
+          <a class="chip" target="_blank" rel="noopener" href="https://fatocarimbado.com.br/mandato/#/presidente">Promessas</a>
+          <a class="chip" target="_blank" rel="noopener" href="https://fatocarimbado.com.br/mandato/#/congresso">Congresso agora</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="dicas" class="wrap">
+    <h2>Como identificar uma notícia falsa</h2>
+    <div class="grid">
+      <article><h4>1. Desconfie da emoção</h4><p>Conteúdos que causam raiva ou medo imediato são feitos para serem compartilhados sem pensar. Respire antes.</p></article>
+      <article><h4>2. Leia além do título</h4><p>Manchetes podem distorcer o texto. Leia tudo e confira se o conteúdo sustenta o que o título promete.</p></article>
+      <article><h4>3. Confira a fonte</h4><p>Quem publicou? Existe “Quem somos”, contato, CNPJ? Endereços parecidos com sites famosos são um alerta.</p></article>
+      <article><h4>4. Procure em outros lugares</h4><p>Se é verdade e é importante, outros veículos sérios também estarão noticiando.</p></article>
+      <article><h4>5. Verifique a data</h4><p>Notícias antigas são recirculadas fora de contexto, principalmente em período eleitoral.</p></article>
+      <article><h4>6. Consulte checadores</h4><p>Use agências de checagem de fatos antes de repassar algo duvidoso.</p></article>
+    </div>
+    <h3>Agências e ferramentas gratuitas</h3>
+    <ul class="links">
+      <li><a href="https://www.aosfatos.org/" target="_blank" rel="noopener">Aos Fatos</a></li>
+      <li><a href="https://lupa.uol.com.br/" target="_blank" rel="noopener">Agência Lupa</a></li>
+      <li><a href="https://projetocomprova.com.br/" target="_blank" rel="noopener">Projeto Comprova</a></li>
+      <li><a href="https://fatocarimbado.com.br/mandato/" target="_blank" rel="noopener">Fato Carimbado (políticos)</a></li>
+      <li><a href="https://www.tse.jus.br/comunicacao/noticias/fato-ou-boato" target="_blank" rel="noopener">TSE — Fato ou Boato</a></li>
+      <li><a href="https://www.virustotal.com/" target="_blank" rel="noopener">VirusTotal</a></li>
+      <li><a href="https://nordvpn.com/pt-br/link-checker/" target="_blank" rel="noopener">NordVPN Link Checker</a></li>
+    </ul>
+  
+</section>
+
+<section id="ia" class="band"><div class="wrap">
+  <h2>Foi feito por IA?</h2>
+  <p class="sub">Nenhuma ferramenta detecta IA com 100% de certeza, mas estes sinais ajudam:</p>
+  <div class="grid">
+    <article><h4>Mãos e detalhes</h4><p>Dedos a mais, dentes estranhos, brincos diferentes, texto embaralhado em placas e cartazes.</p></article>
+    <article><h4>Luz e sombras</h4><p>Iluminação incoerente, sombras em direções diferentes, pele lisa demais.</p></article>
+    <article><h4>Voz e boca</h4><p>Em vídeos, observe se os lábios acompanham a fala e se a voz soa robótica ou sem respiração.</p></article>
+    <article><h4>Busca reversa</h4><p>Pesquise a imagem no Google Lens ou TinEye para achar a origem e o contexto original.</p></article>
+  </div>
+</div></section>
+
+<section id="quiz">
+  <div class="wrap">
+    <h2>Quiz: fato ou fake?</h2>
+    <div id="quizbox" class="quiz"></div>
+  </div>
+</section>
+
+<section id="sobre" class="wrap about">
+  <h2>Sobre o ConfereAí</h2>
+  <div class="grid three">
+    <article><h4>Missão</h4><p>Capacitar o cidadão comum a reconhecer desinformação, links maliciosos e conteúdo manipulado, com ferramentas gratuitas e linguagem simples.</p></article>
+    <article><h4>Visão</h4><p>Ser, até 2030, referência nacional em educação digital contra a desinformação, especialmente em períodos eleitorais.</p></article>
+    <article><h4>Valores</h4><p>Verdade e transparência · Acesso gratuito e inclusão digital · Pensamento crítico · Imparcialidade · Privacidade do usuário.</p></article>
+  </div>
+  <p class="small">Projeto Integrador — Senac EAD. Equipe: Gisele da Silva Luz, Ryan Martins Barbosa e Sandra Renata Ferreira Ledesma. ConfereAí é uma empresa fictícia criada para fins acadêmicos.</p>
+</section>
+</main>
+
+<footer><p>© 2026 ConfereAí · Este site não coleta dados pessoais.</p></footer>
+<script src="app.js"></script>
+</body>
+</html>
